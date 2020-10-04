@@ -18,8 +18,17 @@ class _StreamCardState extends State<StreamCard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Streamer ID Card $streamerLevel"),
-        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/Twitch_logo_PNG1.png',
+              fit: BoxFit.contain,
+              height: 32,),
+            Container(
+                padding: const EdgeInsets.all(8.0), child: Text('Streamer Card ID'))
+          ],
+        ),
         backgroundColor: Colors.deepPurpleAccent,
         elevation: 0.0,
       ),
