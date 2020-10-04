@@ -5,12 +5,20 @@ void main() => runApp(MaterialApp(
   home: StreamCard(),
 ));
 
-class StreamCard extends StatelessWidget {
+class StreamCard extends StatefulWidget {
+  @override
+  _StreamCardState createState() => _StreamCardState();
+}
+
+class _StreamCardState extends State<StreamCard> {
+
+  int streamerLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Streamer ID Card"),
+        title: Text("Streamer ID Card $streamerLevel"),
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent,
         elevation: 0.0,
@@ -49,7 +57,7 @@ class StreamCard extends StatelessWidget {
             ),
             SizedBox(height: 20.0),
             Text(
-              "Level",
+              "LEVEL",
               style: TextStyle(
                   color:Colors.black87,
                   letterSpacing: 2.0,
@@ -58,7 +66,7 @@ class StreamCard extends StatelessWidget {
             ),
             SizedBox(height: 1.0),
             Text(
-              "100",
+              "$streamerLevel",
               style: TextStyle(
                   color:Colors.deepPurpleAccent,
                   letterSpacing: 2.0,
@@ -86,6 +94,15 @@ class StreamCard extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            streamerLevel += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.deepPurpleAccent,
       ),
     );
   }
